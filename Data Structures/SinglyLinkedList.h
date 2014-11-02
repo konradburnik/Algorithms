@@ -85,6 +85,28 @@ namespace Algorithms
       return *this;
     }
 
+    SinglyLinkedList<T>& insertAfter(T old_value, T new_value)
+    {
+      if (head == nullptr)
+        head = new LinkedListNode<T>(new_value);
+      else 
+      {
+        LinkedListNode<T>* current = head;
+
+        while (current != nullptr && current->value != old_value)
+          current = current->next;
+
+        if (current != nullptr && current->value == old_value)
+        {
+          LinkedListNode<T>* temp = current->next;
+          current->next = new LinkedListNode<T>(new_value);
+          current->next->next = temp;
+        }
+      }      
+      return *this;
+    }
+
+
     SinglyLinkedList<T>& removeElement(T value_to_delete)
     {      
       if (head != nullptr)
