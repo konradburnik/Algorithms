@@ -3,6 +3,7 @@
 #include "..\Data Structures\BinaryTree.h"
 #include "..\Data Structures\BinarySearchTree.h"
 #include "..\Data Structures\SinglyLinkedList.h"
+#include "..\Data Structures\List.h"
 
 template <typename T>
 void preorder(Algorithms::BinaryTreeNode<T> *start)
@@ -32,7 +33,22 @@ void printList(Algorithms::SinglyLinkedList <int>& L)
   std::cout << "Printing list done!" << std::endl;
 }
 
+void printMyList(Algorithms::List <int>* L)
+{
+
+  std::cout << "Printing list:" << std::endl;
+  for (Algorithms::ListElement<int>* current = L->getHead(); current != nullptr; current=current->getNext())
+  {
+    std::cout << current->getValue() << std::endl;
+  }
+  std::cout << "Printing list done!" << std::endl;
+}
+
+
+
 int main(void){
+
+  Algorithms::MyList<int> *M = new Algorithms::MyList < int >;
 
 	Algorithms::BinaryTree<int> B(1);
 	Algorithms::BinarySearchTree<int> S;
@@ -55,5 +71,11 @@ int main(void){
   printList(L);
   L.removeElement(3);  
   printList(L);
-	return 0;
+  M->addFront(1);
+  M->addFront(2);
+  M->addFront(3);
+  printMyList(M);
+  int a;
+  std::cin >> a;
+  return 0;
 }
