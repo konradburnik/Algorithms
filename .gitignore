@@ -2,3 +2,5 @@ algorithms.sublime-project
 algorithms.sublime-workspace
 bin
 bin/*
+Tests
+Tests/*
