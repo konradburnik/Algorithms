@@ -3,6 +3,9 @@
 
 #include <exception>
 
+namespace Algorithms 
+{
+
 const int __MAX_STACK_ARRAY_SIZE = 10000;
 
 class StackArrayOverflowException: public std::exception
@@ -64,5 +67,7 @@ class StackArray {
   return size == 0;
  }
 };
+
+}
 
 #endif // __STACK_ARRAY_H
