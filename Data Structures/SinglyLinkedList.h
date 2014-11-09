@@ -141,8 +141,24 @@ namespace Algorithms
       }     
       return *this;
     }
-
-
+    
+    bool isEmpty()
+    {
+      return head == nullptr;
+    }
+    
+    bool elementExists(T sought_value)
+    {      
+        LinkedListNode<T>* current = getHead();
+        while(current != nullptr)
+        {
+          if (current->value == sought_value) 
+            return true;
+          current = current->next;
+        }
+        return false;
+    }
+    
   };
 }
 
