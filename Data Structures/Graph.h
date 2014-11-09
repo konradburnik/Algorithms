@@ -8,17 +8,23 @@ namespace Algorithms
   class Vertex
   {
     private:
-      size_t ID;
+      long ID;
       T* data;
     public:
-      Vertex(T* VertexData)
+      Vertex(long _ID, T* VertexData)
       {
+        ID = _ID;
         data = VertexData;
       }
 
-      size_t getID() const
+      long getID() const
       {
        return ID;
+      }
+
+      T* getData()
+      {
+        return data;
       }
   };
 
@@ -26,13 +32,15 @@ namespace Algorithms
   class Graph
   {
     public:
-      virtual void addVertex(Vertex *v) = 0;
-      virtual void removeVertex(Vertex *v) = 0;
-      virtual void addEdge(Vertex *v1, Vertex *v2) = 0;
-      virtual void removeEdge(Vertex *v1, Vertex *v2) = 0;
-      virtual void getVertex(size_t ID, Vertex* v) = 0;
+      virtual void addVertex(Vertex<T> *v) = 0;
+      virtual void removeVertex(Vertex<T> *v) = 0;
+      virtual void addDirectedEdge(Vertex<T> *v1, Vertex<T> *v2) = 0;
+      virtual void addEdge(Vertex<T> *v1, Vertex<T> *v2) = 0;
+      virtual void removeDirectedEdge(Vertex<T> *v1, Vertex<T> *v2) = 0;
+      virtual void removeEdge(Vertex<T> *v1, Vertex<T> *v2) = 0;
+      virtual void getVertex(long ID, Vertex<T>* v) = 0;
   };
 
 }
 
-#endif __GRAPH_H_
+#endif
